@@ -11,7 +11,6 @@ class Employee(val name: String) {
             }
         }
 
-    // Private property - hanya bisa diakses di class ini
     private var performanceRating: Int = 3
 
     fun increasePerformance() {
@@ -22,4 +21,8 @@ class Employee(val name: String) {
     fun printStatus() {
         println("Karyawan: $name, Rating: $performanceRating")
     }
+
+    // Computed Property - dihitung setiap kali diakses
+    val tax: Double
+        get() = salary * 0.1
 }
