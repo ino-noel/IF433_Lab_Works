@@ -10,12 +10,22 @@ fun main() {
 
     println("\\n=== TEST WEAPON ===")
     val sword = Weapon("Excalibur")
-
     sword.damage = -50
     println("Damage setelah set -50: ${sword.damage}")
-
     sword.damage = 9999
     println("Damage setelah set 9999: ${sword.damage}")
-
     println("Tier: ${sword.tier}")
+
+    println("\\n=== TEST PLAYER ===")
+    val player = Player("ProGamer123")
+
+    println("Level awal: ${player.level}")
+
+    player.addXp(50)
+    println("Level setelah +50 XP: ${player.level}")
+
+    player.addXp(60)
+    println("Level setelah +60 XP: ${player.level}")
+
+    player.addXp(-10)
 }
