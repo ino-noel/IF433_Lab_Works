@@ -40,5 +40,14 @@ fun main() {
     println("--- Percobaan Pembayaran Rp 75.000 ---")
     for (payment in paymentMethods) {
         payment.processPayment(75000.0)
+
+        if (payment is EWallet) {
+            println("=> Terdeteksi sebagai E-Wallet. Melakukan top up otomatis...")
+            payment.topUp(50000.0)
+            println("=> Mencoba pembayaran ulang setelah top up:")
+            payment.processPayment(75000.0)
+        }
+
+        println("-------------------------")
     }
 }
