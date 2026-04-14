@@ -30,4 +30,8 @@ fun main() {
         ApiResponse.Loading -> "Tampilkan Spinner"  // Tambahkan ini
     }
     println(uiMessage)
+
+    println("\n=== GAME RPG SYSTEM ===")
+    GameManager.startGame()
+    GameManager.startGame()
 }
