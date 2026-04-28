@@ -38,4 +38,6 @@ fun main() {
     worstPerformersString.forEach { println(it) }
     println("\n-- UNIQUE TRADING PAIRS --")
     println(uniquePairs)
+
+    //tes
 }
