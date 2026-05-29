@@ -56,4 +56,27 @@ class BadOrderProcessor {
             notifier.sendNotification(itemName)
         }
     }
+    interface PricingStrategy {
+        fun calculate(price: Double): Double
+    }
+
+    class RegularPricing : PricingStrategy {
+        override fun calculate(price: Double) = price
+    }
+
+    class VipPricing : PricingStrategy {
+        override fun calculate(price: Double) = price * 0.90
+    }
+
+    fun main() {
+        val repo     = CsvOrderRepository()
+        val notifier = EmailNotifier()
+        val processor = SafeOrderProcessor(repo, notifier)
+
+        val vipPrice     = VipPricing().calculate(500000.0)
+        val regularPrice = RegularPricing().calculate(300000.0)
+
+        processor.processOrder("MacBook Pro", vipPrice, "VIP")
+        processor.processOrder("iPhone 15", regularPrice, "REGULAR")
+    }
 }
